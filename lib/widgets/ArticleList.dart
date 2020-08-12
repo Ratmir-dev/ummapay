@@ -41,10 +41,16 @@ class _ArticleListState extends State<ArticleList> {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
-                        Container(
-                          width: MediaQuery.of(context).size.width*0.33,
-                          child: Image.asset(state.loadedArticleList[index].image,
-                          fit: BoxFit.fill,),
+                        ClipRRect(
+                          borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                          child: Container(
+                            width: MediaQuery.of(context).size.width*0.33,
+                            child: AspectRatio(
+                              aspectRatio: 7/6,
+                              child: Image.network(state.loadedArticleList[index].image,
+                              fit: BoxFit.cover,),
+                            ),
+                          ),
                         ),
                         Container(
                           height: MediaQuery.of(context).size.height*0.19,
@@ -89,7 +95,7 @@ class _ArticleListState extends State<ArticleList> {
           if (state is ArticleErrorState){
             return Center(
               child: Text(
-                  "Не удалось загрузить статьи"
+                  "Не удалось загрузить"
               ),
             );
           }

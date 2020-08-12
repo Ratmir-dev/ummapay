@@ -15,7 +15,7 @@ class ArticleDetail extends StatelessWidget {
             Text(state.loadedArticle.title, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),),
             SizedBox(height: 10,),
             Container(
-              child: Image.asset("assets/imagefull.png",
+              child: Image.network(state.loadedArticle.image,
                 fit: BoxFit.fill,),
             ),
             SizedBox(height: 5,),

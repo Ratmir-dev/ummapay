@@ -3,6 +3,6 @@ import 'package:ummapay/services/article_provider.dart';
 
 class ArticleRepository{
   ArticleProvider _articleProvider = ArticleProvider();
-  List<Article> getAllArticles() => _articleProvider.getArticleList();
-  Article getArticle(int index) => _articleProvider.getArticle(index);
+  Future<List<Article>> getAllArticles() => _articleProvider.getArticleList();
+  Future<Article> getArticle(int index) => _articleProvider.getArticle(index);
 }

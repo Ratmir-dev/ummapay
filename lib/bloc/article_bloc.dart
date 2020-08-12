@@ -15,7 +15,7 @@ class ArticleBloc extends Bloc<ArticleEvent, ArticleState>{
     if(event is ArticleLoadListEvent){
       yield ArticleLoadingState();
       try{
-        final List<Article> _loadedArticleList = articleRepository.getAllArticles();
+        final List<Article> _loadedArticleList = await articleRepository.getAllArticles();
         yield ArticleLoadedListState(loadedArticleList: _loadedArticleList);
       }catch(_){
         yield ArticleErrorState();
@@ -23,7 +23,7 @@ class ArticleBloc extends Bloc<ArticleEvent, ArticleState>{
     } else if (event is ArticleLoadDetailEvent){
       yield ArticleLoadingState();
       try{
-        final Article _loadedArticle = articleRepository.getArticle(event.index);
+        final Article _loadedArticle = await articleRepository.getArticle(event.index);
         yield ArticleLoadedDetailState(loadedArticle: _loadedArticle);
       }catch(_){
         yield ArticleErrorState();

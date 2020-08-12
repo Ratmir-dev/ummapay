@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 
 class Article {
   String author;
@@ -29,4 +31,24 @@ class Article {
     "image": image,
     "date": date
   };
+
+  static Article fromSnapshot(DocumentSnapshot snap) {
+    return Article(
+      author: snap["author"],
+      title: snap["title"],
+      description: snap["description"],
+      image: snap["image"],
+      date: snap["date"],);
+  }
+
+  Map<String, Object> toDocument() {
+    return {
+      "author": author,
+      "title": title,
+      "description": description,
+      "image": image,
+      "date": date
+    };
+  }
 }
+
