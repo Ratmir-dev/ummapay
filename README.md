@@ -1,6 +1,6 @@
 # ummapay
 
-A new Flutter application.
+Тестовое задание для вакансии
 
 ## Getting Started
 
