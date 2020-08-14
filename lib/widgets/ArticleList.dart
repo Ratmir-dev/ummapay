@@ -36,54 +36,60 @@ class _ArticleListState extends State<ArticleList> {
                   onTap: (){
                     articleBloc.add(ArticleLoadDetailEvent(index: index));
                   },
-                  child: Card(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: <Widget>[
-                        ClipRRect(
-                          borderRadius: BorderRadius.all(Radius.circular(5.0)),
-                          child: Container(
-                            width: MediaQuery.of(context).size.width*0.33,
-                            child: AspectRatio(
-                              aspectRatio: 7/6,
-                              child: Image.network(state.loadedArticleList[index].image,
-                              fit: BoxFit.cover,),
-                            ),
-                          ),
-                        ),
-                        Container(
-                          height: MediaQuery.of(context).size.height*0.19,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Container(
-                                alignment: Alignment.centerLeft,
-                                width: MediaQuery.of(context).size.width*0.60,
-                                child: Text(state.loadedArticleList[index].title,
-                                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),),
-                              ),
-                              Container(
-                                width: MediaQuery.of(context).size.width*0.60,
-                                child: Text(state.loadedArticleList[index].description,
-                                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w300),
-                                maxLines: 3,),
-                              ),
-                              Container(
-                                width: MediaQuery.of(context).size.width*0.60,
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: <Widget>[
-                                    Text(state.loadedArticleList[index].author, style: TextStyle(color: Colors.grey, fontSize: 11),),
-                                    Text(state.loadedArticleList[index].date, style: TextStyle(color: Colors.grey, fontSize: 11),),
-                                  ],
+                  child: Padding(
+                    padding: const EdgeInsets.only(bottom: 6),
+                    child: Card(
+                      child: Padding(
+                        padding: const EdgeInsets.only(top:10, bottom: 10),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: <Widget>[
+                            ClipRRect(
+                              borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                              child: Container(
+                                width: MediaQuery.of(context).size.width*0.33,
+                                child: AspectRatio(
+                                  aspectRatio: 7/6,
+                                  child: Image.network(state.loadedArticleList[index].image,
+                                  fit: BoxFit.cover,),
                                 ),
-                              )
-                            ],
-                          ),
+                              ),
+                            ),
+                            Container(
+                              height: MediaQuery.of(context).size.height*0.19,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Container(
+                                    alignment: Alignment.centerLeft,
+                                    width: MediaQuery.of(context).size.width*0.60,
+                                    child: Text(state.loadedArticleList[index].title,
+                                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),),
+                                  ),
+                                  Container(
+                                    width: MediaQuery.of(context).size.width*0.60,
+                                    child: Text(state.loadedArticleList[index].description,
+                                      style: TextStyle(fontSize: 14, fontWeight: FontWeight.w300),
+                                    maxLines: 3,),
+                                  ),
+                                  Container(
+                                    width: MediaQuery.of(context).size.width*0.60,
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: <Widget>[
+                                        Text(state.loadedArticleList[index].author, style: TextStyle(color: Colors.grey, fontSize: 11),),
+                                        Text(state.loadedArticleList[index].date, style: TextStyle(color: Colors.grey, fontSize: 11),),
+                                      ],
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ],
                         ),
-                      ],
+                      ),
                     ),
                   ),
                 )
