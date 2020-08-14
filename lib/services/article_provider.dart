@@ -3,6 +3,7 @@ import 'package:ummapay/models/article_model.dart';
 
 class ArticleProvider{
 
+
   Future<List<Article>> getArticleList() async{
     QuerySnapshot  result = await Firestore.instance
         .collection('articles')
